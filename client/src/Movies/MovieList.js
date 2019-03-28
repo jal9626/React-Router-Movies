@@ -34,12 +34,12 @@ export default class MovieList extends Component {
   }
 }
 
-function MovieDetails(props) {
-  const  id  = Number(props.match.params.id);
+function MovieDetails({movie}) {
+  const  id  = movie;
   return (
       
     <Link to={`/movies/${id}`}>
-      <MovieCard movie={props.movie} />      
+      <MovieCard movie={movie} />      
     </Link>
   );
 }
