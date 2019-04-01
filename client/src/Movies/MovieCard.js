@@ -1,26 +1,30 @@
 import React from 'react';
 
-const MovieCard = ({ movie }) => {
-  const { title, director, metascore, stars, id } = movie;
 
+const MovieCard = (props) => {
+  const {title, director, metascore, stars} = props.movie;
+  //   const id = Number(props.match.params.id);
+  //   const movie = props.movie.find(movie => {
+  //      return movie.id === id;
+  //    })
   return (
-      <div className="movie-card">
-        <h2>{title}</h2>
-        <div className="movie-director">
-          Director: <em>{director}</em>
-        </div>
-        <div className="movie-metascore">
-          Metascore: <strong>{metascore}</strong>
-        </div>
-        <h3>Actors</h3>
+    <div className="movie-card">
+      <h2>{title}</h2>
+      <div className="movie-director">
+        Director: <em>{director}</em>
+      </div>
+      <div className="movie-metascore">
+        Metascore: <strong>{metascore}</strong>
+      </div>
+      <h3>Actors</h3>
 
-        {stars.map(star => (
-          <div key={star} className="movie-star">
-            {star}
-          </div>    
-        ))}
-      </div>   
-  )
+      {stars.map(star => (
+        <div key={star} className="movie-star">
+          {star}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default MovieCard;

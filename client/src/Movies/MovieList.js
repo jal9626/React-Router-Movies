@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import MoviedCard from './MovieCard';
+import MovieCard from './MovieCard';
 import { Link } from 'react-router-dom';
 
 export default class MovieList extends Component {
@@ -25,21 +25,30 @@ export default class MovieList extends Component {
 
   render() {
     return (
+      
       <div className="movie-list">
         {this.state.movies.map(movie => (
-          <MovieDetails key={movie.id} movie={movie} />
+          <div className='movie-card' key='movie.id'> 
+            <Link to={`/movies/${movie.id}`}>
+              <MovieCard movie={movie} />
+            </Link>
+             
+       </div>
         ))}
       </div>
+      // stars={movie.stars}
     );
   }
 }
 
-function MovieDetails({movie}) {
-  const  id  = movie;
-  return (
-      
-    <Link to={`/movies/${id}`}>
-      <MovieCard movie={movie} />      
-    </Link>
-  );
-}
+// function MovieDetails({movie, id}) {
+  
+//   return (
+//     <div className='movie-card'> 
+//       <Link to={`/movies/${id}`}>
+//         <MovieCard movie={movie} />
+//       </Link>
+          
+//     </div>
+//   );
+// }
